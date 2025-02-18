@@ -1,4 +1,5 @@
-import { lazy, LazyExoticComponent } from "react";
+import { LazyExoticComponent } from "react";
+import { Products } from "../02-component-patterns/pages/Products";
 
 type JSXComponent = () => React.JSX.Element;
 
@@ -12,31 +13,31 @@ interface Route {
 }
 
 
-const Lazy1 = lazy(() => import(/* webpackChunkName: "LazyPage" */'../01-lazyload/pages/LazyPage'));
-const Lazy2 = lazy(() => import(/* webpackChunkName: "LazyPage2" */'../01-lazyload/pages/LazyPage2'));
-const Lazy3 = lazy(() => import(/* webpackChunkName: "LazyPage3" */'../01-lazyload/pages/LazyPage3'));
+// const Lazy1 = lazy(() => import(/* webpackChunkName: "LazyPage" */'../01-lazyload/pages/LazyPage'));
+// const Lazy2 = lazy(() => import(/* webpackChunkName: "LazyPage2" */'../01-lazyload/pages/LazyPage2'));
+// const Lazy3 = lazy(() => import(/* webpackChunkName: "LazyPage3" */'../01-lazyload/pages/LazyPage3'));
 
 
 
 export const routes: Route[] = [
     {
-        to: '/lazy',
-        path: 'lazy',
-        Component:  Lazy1,
-        name: 'Home',
+        to: '/Products',
+        path: 'products',
+        Component:  Products,
+        name: 'Products',
         HydrateFallback: { message: 'Loading Home...' }
     },
     {
-        to: '/lazy2',
-        path: 'lazy2',
-        Component: Lazy2,
+        to: '/Customers',
+        path: 'Customers',
+        Component: Products,
         name: 'Customers',
         HydrateFallback: { message: 'Loading Home...' }
     },
     {
-        to: '/lazy3',
-        path: 'lazy3',
-        Component: Lazy3,
+        to: '/Orders',
+        path: 'Orders',
+        Component: Products,
         name: 'Orders',
         HydrateFallback: { message: 'Loading Home...' }
     },
