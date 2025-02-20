@@ -26,10 +26,6 @@ export const useProductCart = () => {
 
           //Add product to cart
             if( Math.max( productInCart.count + count, 0 ) > 0 ) {
-                console.log({
-                    ...productInCart,
-                    count: Math.max( productInCart.count + count, 0 )
-                })
                 return {
                     ...oldProductCart,
                     [product.id]: {
