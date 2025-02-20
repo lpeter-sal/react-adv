@@ -1,6 +1,6 @@
-import { createContext } from 'react';
+import { createContext, JSX } from 'react';
 import { useProduct } from '../hooks/useProducts';
-import { onChangeArgs, Product, ProductContextProps } from '../interfaces/interfaces';
+import { InitialValues, onChangeArgs, Product, ProductCartHandlers, ProductContextProps } from '../interfaces/interfaces';
 
 import styles from '../styles/styles.module.css';
 
@@ -9,20 +9,23 @@ export const ProductContext = createContext({} as ProductContextProps);
 const { Provider } = ProductContext;
 
 export interface Props {
-     product: Product;
-    children?: React.ReactElement | React.ReactElement[];
+    product: Product;
+    // children?: React.ReactElement | React.ReactElement[]; | () => JSX.Element;
+    children: ( args: ProductCartHandlers) => JSX.Element;
     className?: string;
     style?: React.CSSProperties;
     onChange?: ( args: onChangeArgs) => void;
     value?: number;
+    initialValue?: InitialValues;
 }
 
-export const ProductCard = ({ children, product, className, style, onChange, value }: Props) => {
+export const ProductCard = ({ children, product, className, style, onChange, value, initialValue }: Props) => {
 
-    const { counter, increaseBy } = useProduct({ 
+    const { counter, increaseBy, maxCount, isMaxCountReached, reset } = useProduct({ 
             onChange, 
             product,
-            value
+            value,
+            initialValue
         });
 
 
@@ -31,6 +34,7 @@ export const ProductCard = ({ children, product, className, style, onChange, val
     <Provider value={{
         counter,
         increaseBy,
+        maxCount,
         product
     }}>
 
@@ -40,7 +44,15 @@ export const ProductCard = ({ children, product, className, style, onChange, val
             
         >
             
-            { children }
+            { children({
+                count: counter,
+                isMaxCountReached,
+                maxCount: initialValue?.maxCount,
+                product,
+
+                increaseBy,
+                reset,
+            }) }
 
         </div>
 
