@@ -12,9 +12,24 @@ export const useProductCart = () => {
     
           const productInCart: ProductInCart = oldProductCart[product.id] || { ...product, count: 0 };
 
+        //   if( Math.max( productInCart.count + count, 0 ) > 0 ) {
+        //         productInCart.count += count;
+        //         return {
+        //             ...oldProductCart,
+        //             [product.id]: productInCart,
+
+        //         }
+        //     }  
+        // Delete product from cart   
+        // const { [product.id]: toDelete, ...rest  } = oldProductCart;
+        // return rest;
 
           //Add product to cart
             if( Math.max( productInCart.count + count, 0 ) > 0 ) {
+                console.log({
+                    ...productInCart,
+                    count: Math.max( productInCart.count + count, 0 )
+                })
                 return {
                     ...oldProductCart,
                     [product.id]: {
