@@ -3,7 +3,6 @@ import { ProductContext } from "./ProductsCard";
 
 import styles from '../styles/styles.module.css';
 import { InitialValues } from "../interfaces/interfaces";
-import { useProduct } from "../hooks/useProducts";
 
 export interface Props {
     className?: string;
