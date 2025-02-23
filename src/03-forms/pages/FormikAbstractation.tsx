@@ -1,20 +1,13 @@
 import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
-
 import { MyCheckbox, MySelect, MyTextInput } from '../components';
-
-
 
 import '../styles/styles.css';
 
 export const FormikAbstractation = () => {
-
-    
-
   return (
     <div>
         <h1>Formik Abstractation </h1>
-
         <Formik
             initialValues={ {
                 firstName: '',
@@ -22,7 +15,6 @@ export const FormikAbstractation = () => {
                 email: '',
                 terms: false,
                 jobType: '',
-
             }}
             onSubmit = { (values ) => {
                 console.log(values)
@@ -52,20 +44,17 @@ export const FormikAbstractation = () => {
                             name="firstName"
                             placeholder="Name"
                         />
-
                         <MyTextInput 
                             label="Last Name" 
                             name="lastName"
                             placeholder="Last Name"
                         />
-
                         <MyTextInput 
                             label="Email" 
                             name="email"
                             placeholder="Email"
                             type="email"
                         />
-
                         <MySelect label="Job Type" name="jobType">
                             <option value="">Select a job type</option>
                             <option value="designer">Designer</option>
@@ -73,13 +62,10 @@ export const FormikAbstractation = () => {
                             <option value="product">Product Manager</option>
                             <option value="other">Other</option>
                         </MySelect>
-
-
                         <MyCheckbox 
                             name="terms"
                             label="Terms and Conditions"
                         />
-                        
                         <button type="submit">Submit</button>
                     </Form>
                 )
