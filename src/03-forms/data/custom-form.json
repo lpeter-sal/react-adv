@@ -1,0 +1,75 @@
+[
+    {
+        "type": "input",
+        "name": "firstName",
+        "placeholder": "Enter your first name",
+        "label": "First Name",
+        "value": "",
+        "validations": [
+            {
+                "type": "required",
+                "message": "First name is required"
+            },
+            {
+                "type": "minLength",
+                "value": 5,
+                "message": "First name must be at least 3 characters long"
+            }
+        ]
+    },
+    {
+        "type": "input",
+        "name": "lastName",
+        "placeholder": "Enter your last name",
+        "label": "Last Name",
+        "value": "",
+        "validations": [
+            {
+                "type": "required",
+                "message": "Last name is required"
+            },
+            {
+                "type": "minLength",
+                "value": 5,
+                "message": "Last name must be at least 3 characters long"
+            }
+        ]
+    },
+    {
+        "type": "email",
+        "name": "email",
+        "placeholder": "Enter your email",
+        "label": "Email",
+        "value": "",
+        "validations": [
+            {
+                "type": "required",
+                "message": "Email is required"
+            },
+            {
+                "type": "email",
+                "message": "Email is invalid"
+            }
+        ]
+    },
+    {
+        "type": "select",
+        "name": "favoriteGame",
+        "placeholder": "Enter your favorite game",
+        "label": "Favorite Game",
+        "value": "",
+        "options": [ 
+            { "id": "1", "label": "Super Mario Bros" },
+            { "id": "2", "label": "The Legend of Zelda" },
+            { "id": "3", "label": "Metroid" },
+            { "id": "4", "label": "Kirby's Adventure" }
+        ],
+        "validations": [
+            {
+                "type": "required",
+                "message": "This field is required"
+            }
+        ]
+    }
+    
+]
